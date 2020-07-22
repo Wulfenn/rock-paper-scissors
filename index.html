@@ -26,7 +26,7 @@
 
         function playRound(playerSelection, computerSelection) {
             computerSelection = computerPlay();
-            let string = prompt('Choose! Rock, Paper, Scissors.');
+            let string = prompt(`Game ${i + 1}! Choose! Rock, Paper, Scissors.`);
             if (string == null) {
                 console.log('Please type a valid selection. Your game did not count.');
                 isValidSelection = false;
@@ -78,9 +78,10 @@
                             break;
 
 
-                    }
+
                 }
             }
+        }
 
         }
 
