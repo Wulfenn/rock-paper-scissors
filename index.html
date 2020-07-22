@@ -28,13 +28,13 @@
             computerSelection = computerPlay();
             let string = prompt('Choose! Rock, Paper, Scissors.');
             if (string == null) {
-                console.log('Please type a valid selection');
+                console.log('Please type a valid selection. Your game did not count.');
                 isValidSelection = false;
                 i--;
             } else {
                 playerSelection = string.toLowerCase();
                 if (!(playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors')) {
-                    console.log('Please type a valid selection');
+                    console.log('Please type a valid selection. Your game did not count.');
                     isValidSelection = false;
                     i--;
                 } else {
@@ -42,39 +42,39 @@
                     switch (true) {
 
                         case (playerSelection == 'rock' && computerSelection == 'rock'):
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
                             break;
                         case (playerSelection == 'rock' && computerSelection == 'paper'):
                             computerScore++;
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
                             break;
                         case (playerSelection == 'rock' && computerSelection == 'scissors'):
                             playerScore++;
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
                             break;
 
                         case (playerSelection == 'paper' && computerSelection == 'paper'):
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
                             break;
                         case (playerSelection == 'paper' && computerSelection == 'scissors'):
                             computerScore++;
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
                             break;
                         case (playerSelection == 'paper' && computerSelection == 'rock'):
                             playerScore++;
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
                             break;
 
                         case (playerSelection == 'scissors' && computerSelection == 'scissors'):
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
                             break;
                         case (playerSelection == 'scissors' && computerSelection == 'rock'):
                             computerScore++;
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
                             break;
                         case (playerSelection == 'scissors' && computerSelection == 'paper'):
                             playerScore++;
-                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
+                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
                             break;
 
 
