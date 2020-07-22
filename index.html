@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <script>
+
+        function computerPlay() {
+            let num = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
+            switch (num) {
+                case 1:
+                    return 'rock';
+                    break;
+                case 2:
+                    return 'paper';
+                    break;
+                case 3:
+                    return 'scissors';
+                    break;
+            }
+        }
+
+
+        function playRound(playerSelection, computerSelection) {
+            computerSelection = computerPlay();
+            let string = prompt('Choose! Rock, Paper, Scissors.');
+            if (string == null) {
+                console.log('Please type a valid selection');
+                isValidSelection = false;
+                i--;
+            } else {
+                playerSelection = string.toLowerCase();
+                if (!(playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors')) {
+                    console.log('Please type a valid selection');
+                    isValidSelection = false;
+                    i--;
+                } else {
+                    isValidSelection = true;
+                    switch (true) {
+
+                        case (playerSelection == 'rock' && computerSelection == 'rock'):
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
+                            break;
+                        case (playerSelection == 'rock' && computerSelection == 'paper'):
+                            computerScore++;
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
+                            break;
+                        case (playerSelection == 'rock' && computerSelection == 'scissors'):
+                            playerScore++;
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
+                            break;
+
+                        case (playerSelection == 'paper' && computerSelection == 'paper'):
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
+                            break;
+                        case (playerSelection == 'paper' && computerSelection == 'scissors'):
+                            computerScore++;
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
+                            break;
+                        case (playerSelection == 'paper' && computerSelection == 'rock'):
+                            playerScore++;
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
+                            break;
+
+                        case (playerSelection == 'scissors' && computerSelection == 'scissors'):
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
+                            break;
+                        case (playerSelection == 'scissors' && computerSelection == 'rock'):
+                            computerScore++;
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
+                            break;
+                        case (playerSelection == 'scissors' && computerSelection == 'paper'):
+                            playerScore++;
+                            return (`You chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
+                            break;
+
+
+                    }
+                }
+            }
+
+        }
+
+        let playerSelection = 'rock';
+        let computerSelection = computerPlay();
+        let playerScore = 0;
+        let computerScore = 0;
+        let isValidSelection = true;
+
+
+        function game() {
+            for (i = 0; i < 5; i++) {
+                console.log(playRound(playerSelection, computerSelection));
+                if (isValidSelection) {
+                    console.log(`Scoreboard - You: ${playerScore} Computer: ${computerScore}`)
+                }
+            }
+            if (playerScore > computerScore) {
+                console.log('Congratulations, you beat the computer in a set!');
+            } else if (playerScore == computerScore) {
+                console.log('You tied the set!');
+            } else {
+                console.log('You lost against the computer in the set. Better luck next time!');
+            }
+        }
+
+        game();
+
+
+
+
+    </script>
+</body>
+
+</html>
