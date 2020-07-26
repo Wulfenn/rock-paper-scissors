@@ -1,119 +1,91 @@
 <html>
 
 <head>
-    <title>Rock Paper Scissors</title>
+    <title> Rock, Paper, Scissors - by Wulfen></title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic SC" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee Shade" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <script>
+    <div class="main-container">
+        <div class="container">
 
-        function computerPlay() {
-            let num = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+            <!-- The option bar on the left -->
+            <div class=options-frame>
+                <div class="menu-header">
+                    <h3>Menu</h3>
+                </div>
+                <div>
+                    <div id="reset" class="menu-icon">
+                        <h4 class="ask-reset menu-reset">Reset</h4>
+                    </div>
+                    <div id="change-avatar" class="menu-icon">
+                        <h4 class="menu-change-avatar">Change Avatar</h4>
+                    </div>
+                    <div id="change-boss" class="menu-icon">
+                        <h4 class="menu-change-boss">Change Boss</h4>
+                    </div>
+                </div>
+            </div>
 
-            switch (num) {
-                case 1:
-                    return 'rock';
-                    break;
-                case 2:
-                    return 'paper';
-                    break;
-                case 3:
-                    return 'scissors';
-                    break;
-            }
-        }
+            <!-- The Game window area-->
+            <div class="game-frame">
+                <div class="speech-container">
+                    <div class="player-bubble">
+                        <img class="rps-player-selection" alt="">
+                    </div>
+                    <div class="ai-bubble">
+                        <img class="rps-ai-selection" alt="">
+                    </div>
+                </div>
+                <div class="player-pointer"></div>
+                <div class="ai-pointer"></div>
+                <div class="avatar">
+                    <img id="player-avatar" src="assets/avatar1.png" alt="">
+                    <img id='versus' src="assets/vs.png">
+                    <img id="ai-avatar" src="assets/boss1.png" alt="">
+                </div>
+            </div>
 
+            <!-- Life, RPS Choices and Results area-->
+            <div class="results-frame">
+                <div class="hearts">
+                    <div class="player-hearts">
+                        <h3> Your life</h3>
+                        <img id="plyr-hrt1" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="plyr-hrt2" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="plyr-hrt3" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="plyr-hrt4" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="plyr-hrt5" class="full-heart" src="assets/fullheart.png" alt="">
+                    </div>
+                    <div class="ai-hearts">
+                        <h3 class="h3-right">Boss life</h3>
+                        <img id="ai-hrt1" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="ai-hrt2" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="ai-hrt3" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="ai-hrt4" class="full-heart" src="assets/fullheart.png" alt="">
+                        <img id="ai-hrt5" class="full-heart" src="assets/fullheart.png" alt="">
+                    </div>
+                </div>
+                <div class="selection-choices">
+                    <div id="select-rock" class="selection-icon-rock"><img class="rps-mini-rock" src="assets/rock.png"
+                            alt=""></div>
+                    <div id="select-paper" class="selection-icon-paper"><img class="rps-mini-paper" src="assets/paper.png"
+                            alt=""></div>
+                    <div id="select-scissors" class="selection-icon-scissors"><img class="rps-mini-scissors"
+                            src="assets/scissors.png" alt=""></div>
+                </div>
+                <div id="show-results">
+                    <h4 id="h4-text" class="h4-results"></h4>
+                </div>
+            </div>
 
-        function playRound(playerSelection, computerSelection) {
-            computerSelection = computerPlay();
-            let string = prompt(`Game ${i + 1}! Choose! Rock, Paper, Scissors.`);
-            if (string == null) {
-                console.log('Please type a valid selection. Your game did not count.');
-                isValidSelection = false;
-                i--;
-            } else {
-                playerSelection = string.toLowerCase();
-                if (!(playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors')) {
-                    console.log('Please type a valid selection. Your game did not count.');
-                    isValidSelection = false;
-                    i--;
-                } else {
-                    isValidSelection = true;
-                    switch (true) {
+        </div>
+    </div>
 
-                        case (playerSelection == 'rock' && computerSelection == 'rock'):
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
-                            break;
-                        case (playerSelection == 'rock' && computerSelection == 'paper'):
-                            computerScore++;
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
-                            break;
-                        case (playerSelection == 'rock' && computerSelection == 'scissors'):
-                            playerScore++;
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
-                            break;
-
-                        case (playerSelection == 'paper' && computerSelection == 'paper'):
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
-                            break;
-                        case (playerSelection == 'paper' && computerSelection == 'scissors'):
-                            computerScore++;
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
-                            break;
-                        case (playerSelection == 'paper' && computerSelection == 'rock'):
-                            playerScore++;
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
-                            break;
-
-                        case (playerSelection == 'scissors' && computerSelection == 'scissors'):
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nIt's a tie! - ${playerSelection} against ${computerSelection}.`);
-                            break;
-                        case (playerSelection == 'scissors' && computerSelection == 'rock'):
-                            computerScore++;
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou lost :(  - ${computerSelection} beats ${playerSelection}. `);
-                            break;
-                        case (playerSelection == 'scissors' && computerSelection == 'paper'):
-                            playerScore++;
-                            return (`Game ${i + 1}\nYou chose: ${playerSelection} \nComputer chose: ${computerSelection}\nYou win! - ${playerSelection} beats ${computerSelection}.`);
-                            break;
-
-
-
-                }
-            }
-        }
-
-        }
-
-        let playerSelection = 'rock';
-        let computerSelection = computerPlay();
-        let playerScore = 0;
-        let computerScore = 0;
-        let isValidSelection = true;
-
-
-        function game() {
-            for (i = 0; i < 5; i++) {
-                console.log(playRound(playerSelection, computerSelection));
-                if (isValidSelection) {
-                    console.log(`Scoreboard - You: ${playerScore} Computer: ${computerScore}`)
-                }
-            }
-            if (playerScore > computerScore) {
-                console.log('Congratulations, you beat the computer in a set!');
-            } else if (playerScore == computerScore) {
-                console.log('You tied the set!');
-            } else {
-                console.log('You lost against the computer in the set. Better luck next time!');
-            }
-        }
-
-        game();
-
-
-
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
