@@ -151,7 +151,7 @@ btnReset.onclick = function () {
 function resetGame() {
     showResults.classList.remove('results-lose');
     showResults.classList.remove('results-win');
-    h4Text.textContent = '';
+    showResults.textContent = '';
 
     for (let i = 5; i > 0; i--) {
         const refillPlyrHeart = document.querySelector(`#plyr-hrt${i}`);
@@ -194,10 +194,10 @@ function lookForWinner() {
 
     if (lastPlayerHeart.classList.contains('empty-heart')) {
         showResults.classList.add('results-lose');
-        h4Text.textContent = "You lose...";
+        showResults.textContent = "You lose...";
     } else if (lastAIHeart.classList.contains('empty-heart')) {
         showResults.classList.add('results-win');
-        h4Text.textContent = "You win!"
+        showResults.textContent = "You win!"
     }
 }
 

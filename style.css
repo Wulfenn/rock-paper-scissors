@@ -234,11 +234,6 @@ body {
     font-weight: bold;
 }
 
-.h4-results {
-    position: relative;
-    top: -1.2em;
-}
-
 .selection-choices {
     display: flex;
 }
